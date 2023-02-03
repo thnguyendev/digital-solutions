@@ -2,4 +2,7 @@ master-page {
   .content {
     min-height: 100%;
   }
+  > * {
+    min-width: 600px;
+  }
 }

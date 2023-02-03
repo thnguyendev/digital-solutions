@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 // pages
 import { MasterPageComponent } from './pages/master-page/master-page.component';
 // components
@@ -28,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
     // angular material
     MatToolbarModule,
     MatButtonModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
