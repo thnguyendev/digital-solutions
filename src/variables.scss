@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+// colors
+$black: #000000;
+$white: #ffffff;
+$grey-1: rgba(0, 0, 0, 87%);
+$grey-2: rgba(0, 0, 0, 60%);
+$grey-3: rgba(0, 0, 0, 38%);
+$light-grey: map.get(mat.$grey-palette, 200);
+$dark-grey: map.get(mat.$grey-palette, 400);
+$colors: (
+  'black': $black,
+  'white': $white,
+  'light-grey': $light-grey,
+  'dark-grey': $dark-grey,
+);
+// opacities
+$high-opacity: 87%;
+$medium-opacity: 60%;
+$low-opacity: 38%;
+// lengths
+$gap: 0.5rem;
+$gap-1: 1rem;

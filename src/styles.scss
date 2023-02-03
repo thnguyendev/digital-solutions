@@ -1,7 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'sass:map';
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-
+// Plus imports for other components in your app.
+@import '/src/variables.scss';
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
 @include mat.core();
 
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$digital-solutions-primary: mat.define-palette(mat.$purple-palette);
+$digital-solutions-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$digital-solutions-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$digital-solutions-theme: mat.define-light-theme((
+  color: (
+    primary: $digital-solutions-primary,
+    accent: $digital-solutions-accent,
+    warn: $digital-solutions-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($digital-solutions-theme);
+
+/* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// styles
+@each $name, $color in $colors {
+  .#{$name} {
+    color: $color !important;
+  }
+  .background-#{$name} {
+    background-color: $color !important;
+  }
+  .border-#{$name} {
+    border-color: $color !important;
+  }
+}
+.full-width { width: 100%; }
+.half-width { width: calc((100% - $gap) / 2); }
+.one-third-width { width: calc((100% - $gap * 2) / 3); }
+.full-height { height: 100%; }
+.half-height { height: calc((100% - $gap) / 2); }
+.one-third-height { height: calc((100% - $gap * 2) / 3); }
+.spacer { flex: 1 1 auto; }
+.fit-column { width: 0.1%; }
+.hidden { display: none !important; }
+.click-through { pointer-events: none; }
+.page-container { margin: 0 auto; max-width: 80rem; }
+.row-container { display: flex; flex-direction: row; > * + * { margin-left: $gap; } }
+.column-container { display: flex; flex-direction: column; > * + * { margin-top: $gap; } }
+.horizon-left { justify-content: flex-start; }
+.horizon-center { justify-content: center; }
+.horizon-right { justify-content: flex-end; }
+.vertical-top { align-items: flex-start; }
+.vertical-middle { align-items: center; }
+.vertical-bottom { align-items: flex-end; }
