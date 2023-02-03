@@ -1,0 +1,9 @@
+@import '/src/variables.scss';
+footer-component {
+  .content {
+    padding: $gap-1;
+  }
+  p {
+    font-size: $font-small;
+  }
+}
